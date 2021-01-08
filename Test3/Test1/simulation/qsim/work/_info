@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/CORE I7/Documents/Test3/Test1/simulation/qsim
+vTest1
+!s110 1578966425
+!i10b 1
+!s100 [E7b6o0H:mZM;Kie3Ya722
+IOk]P_MjSjSQ=QNTenj[`A3
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1578966421
+8Test1.vo
+FTest1.vo
+L0 31
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1578966425.000000
+!s107 Test1.vo|
+!s90 -work|work|Test1.vo|
+!i113 1
+Z3 o-work work
+Z4 tCvgOpt 0
+n@test1
+vTest1_vlg_vec_tst
+!s110 1578966426
+!i10b 1
+!s100 i5BNKAF;HGogHQHol=dVn3
+IYGEHoJenNL9bPF:DEF1Gi3
+R1
+R0
+w1578966419
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+L0 29
+R2
+r1
+!s85 0
+31
+!s108 1578966426.000000
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R3
+R4
+n@test1_vlg_vec_tst

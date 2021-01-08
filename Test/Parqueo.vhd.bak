@@ -1,0 +1,58 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY Parqueo IS
+	PORT(	Minutos				:IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+			Ingreso				:IN STD_LOGIC;
+			Pagado				:IN STD_LOGIC;
+			Tarjeta				:IN STD_LOGIC;
+			PermitirIngreso	:OUT STD_LOGIC;
+			PermitirSalida		:OUT STD_LOGIC;
+			MinutosAPagar		:OUT STD_LOGIC_VECTOR(4 DOWNTO 0));
+END Parqueo;
+
+ARCHITECTURE Estructura OF Parqueo IS
+	SIGNAL Demux				:STD_LOGIC_VECTOR(0 TO 3);
+	SIGNAL entrada				:STD_LOGIC_VECTOR(1 DOWNTO 0);
+	SIGNAL Bitmas1				:STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL ValorComp1			:STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL ValorComp2			:STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL ValorComp3			:STD_LOGIC_VECTOR(3 DOWNTO 0);
+	SIGNAL ResultadoComp1	:STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL ResultadoComp2	:STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL ResultadoComp3	:STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL ResultadoComp4	:STD_LOGIC_VECTOR(2 DOWNTO 0);
+	
+	COMPONENT dec2a4 IS
+	PORT(	en	:IN STD_LOGIC;
+			w	:IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+			y	:OUT STD_LOGIC_VECTOR(0 TO 3));
+	END COMPONENT;
+	
+	COMPONENT sum4 IS
+	PORT( 	Cin		: IN STD_LOGIC;
+				x			: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+				y			: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+				s			: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+				Cout		: OUT STD_LOGIC);
+	END COMPONENT;
+	
+	COMPONENT compara4 IS
+	PORT( A,B							:IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			IAiguB,IAmayB,IAmenB		:IN STD_LOGIC;
+			AiguB,AmayB,AmenB			:OUT STD_LOGIC);
+	END COMPONENT;
+	
+	BEGIN
+		a1:	entrada <= Ingreso&Salida;
+		a2:	Bitmas1 <= "0000";
+		a3:	Bitmas1(0) <= Minutos(4);
+		a4:	ValorComp1 <= "0000"
+		a5:	ValorComp2 <= "0110"
+		a6:	ValorComp3 <= "1101"
+		demux1: dec2a4 PORT MAP (tarjeta, entrada(1 DOWNTO 0), Demux(0 TO 3));
+		a4: PermitirIngreso <= Demux(1);
+		a5: PermitirSalida <= Demux(2);
+		
+
+END Estructura;

@@ -1,0 +1,254 @@
+|Parqueo
+Minutos[0] => compara4:comp1.A[0]
+Minutos[0] => compara4:comp3.A[0]
+Minutos[0] => sum4:sum1.x[0]
+Minutos[1] => compara4:comp1.A[1]
+Minutos[1] => compara4:comp3.A[1]
+Minutos[1] => sum4:sum1.x[1]
+Minutos[2] => compara4:comp1.A[2]
+Minutos[2] => compara4:comp3.A[2]
+Minutos[2] => sum4:sum1.x[2]
+Minutos[3] => compara4:comp1.A[3]
+Minutos[3] => compara4:comp3.A[3]
+Minutos[3] => sum4:sum1.x[3]
+Minutos[4] => compara4:comp2.A[0]
+Minutos[4] => compara4:comp4.A[0]
+Minutos[4] => sum4:sum2.x[0]
+Ingreso => dec2a4:demux1.w[0]
+Pagado => dec2a4:demux1.w[1]
+Tarjeta => MinutosAPagar.IN1
+Tarjeta => MinutosAPagar.IN1
+Tarjeta => MinutosAPagar.IN1
+Tarjeta => MinutosAPagar.IN1
+Tarjeta => MinutosAPagar.IN1
+Tarjeta => dec2a4:demux1.en
+PermitirIngreso << dec2a4:demux1.y[1]
+PermitirSalida << dec2a4:demux1.y[2]
+MinutosAPagar[0] << MinutosAPagar.DB_MAX_OUTPUT_PORT_TYPE
+MinutosAPagar[1] << MinutosAPagar.DB_MAX_OUTPUT_PORT_TYPE
+MinutosAPagar[2] << MinutosAPagar.DB_MAX_OUTPUT_PORT_TYPE
+MinutosAPagar[3] << MinutosAPagar.DB_MAX_OUTPUT_PORT_TYPE
+MinutosAPagar[4] << MinutosAPagar.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Parqueo|dec2a4:demux1
+en => Mux0.IN8
+en => Mux1.IN8
+en => Mux2.IN8
+en => Mux3.IN8
+w[0] => Mux0.IN10
+w[0] => Mux1.IN10
+w[0] => Mux2.IN10
+w[0] => Mux3.IN10
+w[1] => Mux0.IN9
+w[1] => Mux1.IN9
+w[1] => Mux2.IN9
+w[1] => Mux3.IN9
+y[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+y[0] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Parqueo|compara4:comp1
+A[0] => LessThan0.IN4
+A[0] => LessThan1.IN4
+A[0] => Equal0.IN3
+A[1] => LessThan0.IN3
+A[1] => LessThan1.IN3
+A[1] => Equal0.IN2
+A[2] => LessThan0.IN2
+A[2] => LessThan1.IN2
+A[2] => Equal0.IN1
+A[3] => LessThan0.IN1
+A[3] => LessThan1.IN1
+A[3] => Equal0.IN0
+B[0] => LessThan0.IN8
+B[0] => LessThan1.IN8
+B[0] => Equal0.IN7
+B[1] => LessThan0.IN7
+B[1] => LessThan1.IN7
+B[1] => Equal0.IN6
+B[2] => LessThan0.IN6
+B[2] => LessThan1.IN6
+B[2] => Equal0.IN5
+B[3] => LessThan0.IN5
+B[3] => LessThan1.IN5
+B[3] => Equal0.IN4
+IAiguB => ~NO_FANOUT~
+IAmayB => AmayB.IN1
+IAmenB => AmenB.IN1
+AiguB <= <VCC>
+AmayB <= AmayB.DB_MAX_OUTPUT_PORT_TYPE
+AmenB <= AmenB.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Parqueo|compara4:comp2
+A[0] => LessThan0.IN4
+A[0] => LessThan1.IN4
+A[0] => Equal0.IN3
+A[1] => LessThan0.IN3
+A[1] => LessThan1.IN3
+A[1] => Equal0.IN2
+A[2] => LessThan0.IN2
+A[2] => LessThan1.IN2
+A[2] => Equal0.IN1
+A[3] => LessThan0.IN1
+A[3] => LessThan1.IN1
+A[3] => Equal0.IN0
+B[0] => LessThan0.IN8
+B[0] => LessThan1.IN8
+B[0] => Equal0.IN7
+B[1] => LessThan0.IN7
+B[1] => LessThan1.IN7
+B[1] => Equal0.IN6
+B[2] => LessThan0.IN6
+B[2] => LessThan1.IN6
+B[2] => Equal0.IN5
+B[3] => LessThan0.IN5
+B[3] => LessThan1.IN5
+B[3] => Equal0.IN4
+IAiguB => ~NO_FANOUT~
+IAmayB => AmayB.IN1
+IAmenB => AmenB.IN1
+AiguB <= <VCC>
+AmayB <= AmayB.DB_MAX_OUTPUT_PORT_TYPE
+AmenB <= AmenB.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Parqueo|compara4:comp3
+A[0] => LessThan0.IN4
+A[0] => LessThan1.IN4
+A[0] => Equal0.IN3
+A[1] => LessThan0.IN3
+A[1] => LessThan1.IN3
+A[1] => Equal0.IN2
+A[2] => LessThan0.IN2
+A[2] => LessThan1.IN2
+A[2] => Equal0.IN1
+A[3] => LessThan0.IN1
+A[3] => LessThan1.IN1
+A[3] => Equal0.IN0
+B[0] => LessThan0.IN8
+B[0] => LessThan1.IN8
+B[0] => Equal0.IN7
+B[1] => LessThan0.IN7
+B[1] => LessThan1.IN7
+B[1] => Equal0.IN6
+B[2] => LessThan0.IN6
+B[2] => LessThan1.IN6
+B[2] => Equal0.IN5
+B[3] => LessThan0.IN5
+B[3] => LessThan1.IN5
+B[3] => Equal0.IN4
+IAiguB => ~NO_FANOUT~
+IAmayB => AmayB.IN1
+IAmenB => AmenB.IN1
+AiguB <= <VCC>
+AmayB <= AmayB.DB_MAX_OUTPUT_PORT_TYPE
+AmenB <= AmenB.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Parqueo|compara4:comp4
+A[0] => LessThan0.IN4
+A[0] => LessThan1.IN4
+A[0] => Equal0.IN3
+A[1] => LessThan0.IN3
+A[1] => LessThan1.IN3
+A[1] => Equal0.IN2
+A[2] => LessThan0.IN2
+A[2] => LessThan1.IN2
+A[2] => Equal0.IN1
+A[3] => LessThan0.IN1
+A[3] => LessThan1.IN1
+A[3] => Equal0.IN0
+B[0] => LessThan0.IN8
+B[0] => LessThan1.IN8
+B[0] => Equal0.IN7
+B[1] => LessThan0.IN7
+B[1] => LessThan1.IN7
+B[1] => Equal0.IN6
+B[2] => LessThan0.IN6
+B[2] => LessThan1.IN6
+B[2] => Equal0.IN5
+B[3] => LessThan0.IN5
+B[3] => LessThan1.IN5
+B[3] => Equal0.IN4
+IAiguB => ~NO_FANOUT~
+IAmayB => AmayB.IN1
+IAmenB => AmenB.IN1
+AiguB <= <VCC>
+AmayB <= AmayB.DB_MAX_OUTPUT_PORT_TYPE
+AmenB <= AmenB.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Parqueo|sum4:sum1
+Cin => s.IN0
+Cin => c1.IN0
+Cin => c1.IN0
+x[0] => s.IN1
+x[0] => c1.IN0
+x[0] => c1.IN1
+x[1] => s.IN1
+x[1] => c2.IN0
+x[1] => c2.IN1
+x[2] => s.IN1
+x[2] => c3.IN0
+x[2] => c3.IN1
+x[3] => s.IN1
+x[3] => Cout.IN0
+x[3] => Cout.IN1
+y[0] => s.IN1
+y[0] => c1.IN1
+y[0] => c1.IN1
+y[1] => s.IN1
+y[1] => c2.IN1
+y[1] => c2.IN1
+y[2] => s.IN1
+y[2] => c3.IN1
+y[2] => c3.IN1
+y[3] => s.IN1
+y[3] => Cout.IN1
+y[3] => Cout.IN1
+s[0] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= s.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Parqueo|sum4:sum2
+Cin => s.IN0
+Cin => c1.IN0
+Cin => c1.IN0
+x[0] => s.IN1
+x[0] => c1.IN0
+x[0] => c1.IN1
+x[1] => s.IN1
+x[1] => c2.IN0
+x[1] => c2.IN1
+x[2] => s.IN1
+x[2] => c3.IN0
+x[2] => c3.IN1
+x[3] => s.IN1
+x[3] => Cout.IN0
+x[3] => Cout.IN1
+y[0] => s.IN1
+y[0] => c1.IN1
+y[0] => c1.IN1
+y[1] => s.IN1
+y[1] => c2.IN1
+y[1] => c2.IN1
+y[2] => s.IN1
+y[2] => c3.IN1
+y[2] => c3.IN1
+y[3] => s.IN1
+y[3] => Cout.IN1
+y[3] => Cout.IN1
+s[0] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[1] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[2] <= s.DB_MAX_OUTPUT_PORT_TYPE
+s[3] <= s.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
